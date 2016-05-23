@@ -1,6 +1,6 @@
 function EditSentences()
 {    
-    sentences = document.getElementById("sentenceSeg");
+    var sentences = document.getElementById("sentenceSeg");
     for (i = 0; i < sentences.childNodes.length; i++)
     {
         if (sentences.childNodes[i].getAttribute("class") != "se_li")
@@ -19,7 +19,7 @@ function EditSentences()
 
 function AddButton()
 {
-    table = document.getElementById("sen_bar").childNodes[0];
+    var table = document.getElementById("sen_bar").childNodes[0];
     table.onclick = function(){EditSentences();};
 }
 
