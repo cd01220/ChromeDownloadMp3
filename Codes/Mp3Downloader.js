@@ -1,6 +1,5 @@
-function EditSentences()
+function EditSentences(sentences)
 {    
-    var sentences = document.getElementById("sentenceSeg");
     for (i = 0; i < sentences.childNodes.length; i++)
     {
         if (sentences.childNodes[i].getAttribute("class") != "se_li")
@@ -20,7 +19,7 @@ function EditSentences()
 function SetMouseOverHandler()
 {
     var sentences = document.getElementById("sentenceSeg");
-    sentences.onmouseover = function(){EditSentences();};
+    sentences.onmouseover = function(){EditSentences(sentences);};
 }
 
 SetMouseOverHandler();
