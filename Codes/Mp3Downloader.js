@@ -17,11 +17,11 @@ function EditSentences()
     }
 }
 
-function SetTableOnClickHandler()
+function SetMouseOverHandler()
 {
-    var table = document.getElementById("sen_bar").childNodes[0];
-    table.onclick = function(){EditSentences();};
+    var sentences = document.getElementById("sentenceSeg");
+    sentences.onmouseover = function(){EditSentences();};
 }
 
-SetTableOnClickHandler();
+SetMouseOverHandler();
 
