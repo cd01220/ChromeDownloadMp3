@@ -15,4 +15,6 @@ function EditSentences(sentences)
 }
 
 var sentences = document.getElementById("sentenceSeg");
-sentences.onmouseover = function(){EditSentences(sentences);};
+sentences.addEventListener("DOMSubtreeModified", function(){EditSentences(sentences);}, false);
+EditSentences(sentences);
+
