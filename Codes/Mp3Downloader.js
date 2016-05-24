@@ -1,26 +1,18 @@
 function EditSentences(sentences)
 {    
-    for (i = 0; i < sentences.childNodes.length; i++)
+    nodes = sentences.getElementsByClassName("gl_fl");
+    for (i = 0, len = nodes.length; i < len; i++)
     {
-        if (sentences.childNodes[i].getAttribute("class") != "se_li")
-            continue;
-        var glfl = sentences.childNodes[i].childNodes[2].childNodes[0]
-        if (glfl.childNodes.length < 2)
+        if (nodes[i].childNodes.length < 2)
         {
-            var txt = glfl.childNodes[0].getAttribute("onmousedown");   
+            var txt = nodes[i].firstChild.getAttribute("onmousedown");
             var download = document.createElement("a"); 
             download.href=txt.match("https.*mp3");
             download.innerHTML = "download";
-            glfl.appendChild(download);
+            nodes[i].appendChild(download);
         }
     }
 }
 
-function SetMouseOverHandler()
-{
-    var sentences = document.getElementById("sentenceSeg");
-    sentences.onmouseover = function(){EditSentences(sentences);};
-}
-
-SetMouseOverHandler();
-
+var sentences = document.getElementById("sentenceSeg");
+sentences.onmouseover = function(){EditSentences(sentences);};
