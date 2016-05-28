@@ -8,6 +8,11 @@ function HandleMouseOver(event)
     window.getSelection().addRange(range);
 }
 
+function HandleMouseOut(event)
+{
+    window.getSelection().removeAllRanges();
+}
+
 function HandleSentencesChanges(sentences)
 {    
     nodes = sentences.getElementsByClassName("gl_fl");
@@ -28,6 +33,7 @@ function HandleSentencesChanges(sentences)
     {
         nodes[i].innerHTML = "<span class=\"p1-8\">" + nodes[i].outerText + "</span>"; 
         nodes[i].onmouseover = HandleMouseOver;
+        nodes[i].onmouseout  = HandleMouseOut;
     }
 }
 
