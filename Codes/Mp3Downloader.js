@@ -1,4 +1,14 @@
-function EditSentences(sentences)
+function HandleMouseOver(event)
+{
+    target = event.target;
+    target.focus();
+    var range = document.createRange();
+    range.selectNode(target);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+}
+
+function HandleSentencesChanges(sentences)
 {    
     nodes = sentences.getElementsByClassName("gl_fl");
     for (i = 0, len = nodes.length; i < len; i++)
@@ -11,10 +21,20 @@ function EditSentences(sentences)
             download.innerHTML = "download";
             nodes[i].appendChild(download);
         }
+    } 
+    
+    nodes = sentences.getElementsByClassName("sen_en");
+    for (i = 0, len = nodes.length; i < len; i++)
+    {
+        nodes[i].innerHTML = "<span class=\"p1-8\">" + nodes[i].outerText + "</span>"; 
+        nodes[i].onmouseover = HandleMouseOver;
     }
 }
 
 var sentences = document.getElementById("sentenceSeg");
-sentences.addEventListener("DOMSubtreeModified", function(){EditSentences(sentences);}, false);
-EditSentences(sentences);
+HandleSentencesChanges(sentences);
+sentences.addEventListener("DOMSubtreeModified", 
+                           function(){HandleSentencesChanges(sentences);}, 
+                           false);
+
 
