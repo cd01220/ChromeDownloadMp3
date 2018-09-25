@@ -59,8 +59,6 @@ function HandleSentencesChanges(sentences)
 
 var sentences = document.getElementById("sentenceSeg");
 HandleSentencesChanges(sentences);
-sentences.addEventListener("DOMNodeInserted", 
-                           function(){HandleSentencesChanges(sentences);}, 
-                           false);
+sentences.addEventListener("DOMNodeInserted", function(){HandleSentencesChanges(sentences);}, false);
 
 
